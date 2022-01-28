@@ -1,9 +1,13 @@
 import React from 'react';
+import { useFetch } from '../Hooks/useFetch' 
 import { Form, Container, Row, Col, Button } from 'react-bootstrap';
 
 export const Contenedor = ({state, setState}) => {
 
-  const handleChange = (e) => {
+    const { dataUrl } = useFetch('http://localhost:5000/categorias');
+    console.log(dataUrl)
+
+    const handleChange = (e) => {
 		state.title = e.target.value;
 		setState({
 			...state,
@@ -65,7 +69,14 @@ export const Contenedor = ({state, setState}) => {
     </Row>
     <Form.Group className="mb-3" controlId='formBasicText'>
         <Form.Label>Categoria:</Form.Label>
-        <Form.Control type='text'></Form.Control>
+        <Form.Select aria-label='Seleccionar'>
+            <option value="">Selecciona una opcion....</option>
+            {
+                dataUrl.map(i => {
+                    return <option value={i.idCategoria} key={i.idCategoria}>{i.categoria}</option>
+                })
+            }
+        </Form.Select>
     </Form.Group>
   </Container>
   );

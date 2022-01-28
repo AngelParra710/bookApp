@@ -18,12 +18,12 @@ const initialState = {
 }
 
 export const Formulario = () => {
-  
+	const [libro, setLibro] = useState(initialState);
+
 	const handleSubmit = (e) => {
 		e.preventDefault();
+		console.log(libro)
 	}
-
-	const [libro, setLibro] = useState(initialState);
 
   return (
       <div className='container'>

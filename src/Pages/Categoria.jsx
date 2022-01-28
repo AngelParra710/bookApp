@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SendCategories } from '../Send/SendCategories';
+import { useCategories } from '../Send/useCategories';
 import { Form, Container, Row, Col, Button } from 'react-bootstrap'
 import './formulario.css'
 
@@ -25,16 +25,16 @@ export const Categoria = () => {
 			descripcion: e.target.value,
 		})
 	}
-
-	const setInputs = (e) => {
+	const SetInputs = async (e) => {
 		e.preventDefault();
-		SendCategories(values)
+		const r = await useCategories(values,'http://localhost:5000/categoria/add')
+		console.log(r);
 	}
 
   return(
     <div className='container'>
         <h1>Registrar Categoria</h1>
-        <Form onSubmit={ setInputs }>
+        <Form onSubmit={ SetInputs }>
             <Container>
                 <Form.Group className="mb-3" controlId='formBasicText'>
                     <Form.Label>Categoria:</Form.Label>

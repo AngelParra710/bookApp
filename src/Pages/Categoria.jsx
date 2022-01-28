@@ -1,7 +1,17 @@
 import React, { useState } from 'react';
 import { useCategories } from '../Send/useCategories';
 import { Form, Container, Row, Col, Button } from 'react-bootstrap'
+import Swal from 'sweetalert2';
 import './formulario.css'
+
+const succesAlert = () => {
+	Swal.fire({
+		title: 'Guardado',
+		text: 'El libro se ha guardado correctamente',
+		icon: 'success',
+		timer: '5000',
+	})
+}
 
 export const Categoria = () => {
 
@@ -27,7 +37,10 @@ export const Categoria = () => {
 	}
 	const SetInputs = async (e) => {
 		e.preventDefault();
-		const r = await useCategories(values,'http://localhost:5000/categoria/add')
+		const r = await useCategories(values,'https://apibook.azurewebsites.net/categoria/add')
+		if(r === 'Guardado'){
+			succesAlert();
+		}
 		console.log(r);
 	}
 

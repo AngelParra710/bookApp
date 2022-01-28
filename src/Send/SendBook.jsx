@@ -1,14 +1,12 @@
+import axios from 'axios';
 import React from 'react';
 
 
-export const SendBook = (e) => {
+export const SendBook = async (book, url) => {
     
-    const handleSubmit = () => {
-        e.preventDefault();
-        console.log('handle')
-    }
+    const send = (await axios.post(url,book)).data
   
     return{
-        handleSubmit,
+        send,
     };
 };

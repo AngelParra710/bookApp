@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Form,Button } from 'react-bootstrap';
+import { Form,Button, Alert } from 'react-bootstrap';
 import { SendBook } from '../Send/SendBook';
 import { Contenedor } from './Contenedor';
+import Swal from 'sweetalert2';
 import './formulario.css'
 
 const initialState = {
@@ -17,16 +18,33 @@ const initialState = {
 	idCategoria: 0,
 }
 
+const succesAlert = () => {
+	Swal.fire({
+		title: 'Guardado',
+		text: 'El libro se ha guardado correctamente',
+		icon: 'success',
+		timer: '5000',
+	})
+}
+
 export const Formulario = () => {
 	const [libro, setLibro] = useState(initialState);
-
-	const handleSubmit = (e) => {
+	const [isEnviado, setEnviado] = useState(false);
+	const handleSubmit = async (e) => {
 		e.preventDefault();
-		console.log(libro)
+		const data = await SendBook(libro, 'https://apibook.azurewebsites.net/libros/add');
+		if(data.send === 'Guardado'){ 
+			succesAlert()
+		}
 	}
 
   return (
       <div className='container'>
+					{isEnviado?
+						<Alert className='alerta' variant='primary'>EL libro se ha registrado</Alert>
+						:
+						<></>
+					}
           <h1>Insertar libro</h1>
           <Form onSubmit={handleSubmit}>
               <Contenedor state = {libro} setState={setLibro}/>

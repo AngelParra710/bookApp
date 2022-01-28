@@ -6,8 +6,8 @@ import { Routes, Route } from 'react-router-dom'
 export const Router = () => {
   return (
     <Routes>
-        <Route path = "/" element = { <Categoria /> }></Route>
-        <Route path = "/libros" element = { <Formulario /> }></Route>
+        <Route path = "bookApp/" element = { <Categoria /> }></Route>
+        <Route path = "bookApp/libros" element = { <Formulario /> }></Route>
     </Routes>
   );
 };

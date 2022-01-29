@@ -45,7 +45,7 @@ export const Categoria = () => {
 	}
 
   return(
-    <div className='container'>
+    <div className='contain'>
         <h1>Registrar Categoria</h1>
         <Form onSubmit={ SetInputs }>
             <Container>

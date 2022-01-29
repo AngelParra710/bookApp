@@ -39,11 +39,11 @@ export const Formulario = () => {
 	}
 
   return (
-      <div className='container'>
+      <div className='contain'>
 					{isEnviado?
-						<Alert className='alerta' variant='primary'>EL libro se ha registrado</Alert>
-						:
-						<></>
+								<Alert className='alerta' variant='primary'>EL libro se ha registrado</Alert>
+								:
+								<></>
 					}
           <h1>Insertar libro</h1>
           <Form onSubmit={handleSubmit}>

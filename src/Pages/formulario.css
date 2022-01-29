@@ -1,9 +1,24 @@
-.container{
-    text-align: center;
-    width: 70%;
+.main{
+    height: 92vh;
+    width: 100%;
 }
+.contain{
+    width: 100%;
+    text-align: center;
+}
+.choco{
 
+    position: absolute;
+    height: 300px;
+    z-index: -1;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    background-image: url(../../public/assets/img/chococatpng.png);
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
 .btn{
-    width: 98%;
-    margin-bottom: 30px;
+    width: 82%;
 }

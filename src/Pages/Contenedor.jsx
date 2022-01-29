@@ -17,14 +17,20 @@ export const Contenedor = ({state, setState}) => {
 
   return(
     <Container>
-    <Form.Group className="mb-3" controlId='formBasicText'>
-        <Form.Label>Titulo:</Form.Label>
-        <Form.Control onChange={onChange} type='text' value={state.title} name = 'title'></Form.Control>
-    </Form.Group>
-    <Form.Group className="mb-3" controlId='formBasicText'>
-        <Form.Label>Autor:</Form.Label>
-        <Form.Control onChange={onChange} type='text' value={state.author} name = 'author'></Form.Control>
-    </Form.Group> 
+    <Row>
+        <Col>
+            <Form.Group className="mb-3" controlId='formBasicText'>
+                <Form.Label>Titulo:</Form.Label>
+                <Form.Control onChange={onChange} type='text' value={state.title} name = 'title'></Form.Control>
+            </Form.Group>
+        </Col>
+        <Col>
+            <Form.Group className="mb-3" controlId='formBasicText'>
+                <Form.Label>Autor:</Form.Label>
+                <Form.Control onChange={onChange} type='text' value={state.author} name = 'author'></Form.Control>
+            </Form.Group> 
+        </Col>
+    </Row>
     <Form.Group className="mb-3" controlId='formBasicText'>
         <Form.Label>Descripcion:</Form.Label>
         <Form.Control onChange={onChange} type='text' value={state.content} name = 'content'></Form.Control>
